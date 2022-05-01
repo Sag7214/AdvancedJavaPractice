@@ -138,26 +138,33 @@ public class Lambda02 {
         //1. yontem Method Reference --> Integer class
         Optional<Integer> minSayiInteger = sayi.stream().reduce(Integer::min);
         System.out.println(minSayiInteger);
+
         //2. yontem Method Reference --> Math class
         Optional<Integer> minSayiMath = sayi.stream().reduce(Math::min);
         System.out.println(minSayiMath);
+
         //3. yontem Lambda Expression
         int minSayiLJambda = (sayi.stream().reduce(Integer.MAX_VALUE, (x, y) -> x < y ? x : y));
         System.out.println(minSayiLJambda);
+
         //4. yontem Method Reference --> Haluk class
         Optional<Integer> minSayiHaluk = sayi.stream().reduce(Lambda02::byHalukMin);
         System.out.println(minSayiHaluk);
     }
 
-    public static int byHalukMin(int a, int b) {//bu method kendisine verilen iki int degerin en kücügunu return eder
+    public static int byHalukMin(int a, int b) {   //bu method kendisine verilen iki int degerin en kücügunu return eder
         return a < b ? a : b;
     }
+
 
     // Task : List'teki 5'ten buyuk en kucuk tek sayiyi print ediniz.
     public static void bestenBykEnKck(List<Integer> sayi) {
 
         System.out.println(sayi.stream().filter(t -> t > 5 && t % 2 == 1).reduce(Lambda02::byHalukMin));
     }
+
+
+
 
     // Task : list'in cift  elemanlarinin karelerini  kucukten buyuge print ediniz.
     public static void ciftKareKbPrint(List<Integer> sayi) {
@@ -172,8 +179,9 @@ public class Lambda02 {
         //Sorted() methodu tekrarlı kullanılırsa en son kullanılan aktif olur.
     }
 
-        // Task : list'in tek  elemanlarinin kareleri ni buykten kucuge  print ediniz.
 
+
+        // Task : list'in tek  elemanlarinin kareleri ni buykten kucuge  print ediniz.
     public static void tekKareBkPrint(List<Integer> sayi) {
         sayi.//akıs kaynagı
                 stream().//akısa alındı
